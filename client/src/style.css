@@ -1,0 +1,13 @@
+
+.modal-switch {
+  cursor: pointer;
+  color: royalblue;
+}
+
+.modal-switch:hover {
+  text-decoration: underline;
+}
+
+.modal-transition {
+  transition: all 1s ease;
+}

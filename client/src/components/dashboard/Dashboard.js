@@ -1,23 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import Sidebar from './sidebar/Sidebar';
+
+
 
 class Dashboard extends Component {
   componentDidMount() {
-    this.props.searchMovie("batman");
+    // fetch movies from user's database
   }
-  renderMovies() {
-    return this.props.searchedMovies.map((movie) => {
-      return (
-        <li>{movie.title}</li>
-      );
-    })
-  }
+
   render() {
     return (
-      <ul>
-        {this.renderMovies()}
-      </ul>
+      <div className="dashboard-container">
+        <Sidebar />
+
+      </div>
     );
   }
 }

@@ -1,3 +1,5 @@
+
+
 .modal-switch {
   cursor: pointer;
   color: royalblue;
@@ -12,9 +14,13 @@
 }
 
 .dashboard-container {
+  position: fixed;
+  top: 0;
+  left: 0;
 
-  display: flex;
-
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
   background: linear-gradient(41deg, #7b939a, #e8ffc5, #ecf4b7);
   background-size: 600% 600%;
   animation: linesGradient 50s ease infinite;

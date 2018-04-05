@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 import Sidebar from './sidebar/Sidebar';
-
+import Main from "./Main";
 
 
 class Dashboard extends Component {
@@ -14,7 +14,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard-container">
         <Sidebar />
-
+        <Main />
       </div>
     );
   }

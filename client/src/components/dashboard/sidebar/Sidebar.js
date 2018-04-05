@@ -2,50 +2,21 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../actions";
 
-class Sidebar extends Component {
-  componentDidMount() {
-    // get the collections from the logged user
-  }
+import Sidebar from "react-sidebar";
+
+const mql = window.matchMedia(`(min-width: 800px)`);
+
+class Sidenav extends Component {
   render() {
     return (
-      <nav id="sidebar">
-        <div class="sidebar-header">
-          <h3>Collapsible Sidebar</h3>
-        </div>
+      <div style={{position: "absolute", top: "0px", bottom: "0px", width: "230px", borderRight: "solid black 1px"}}>
+        <table>
+          <h1>MB</h1>
 
-        <ul class="list-unstyled components">
-          <li class="active">
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-              Pages
-            </a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-              <li>
-                <a href="#">Page</a>
-              </li>
-              <li>
-                <a href="#">Page</a>
-              </li>
-              <li>
-                <a href="#">Page</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Portfolio</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </nav>
+
+        </table>
+      </div>
     );
   }
 }
-
-export default Sidebar;
+export default Sidenav;

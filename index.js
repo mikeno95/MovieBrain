@@ -24,7 +24,7 @@ app.use(cors());
 // app.use(passport.initialize());
 // app.use(passport.session());
 require("./services/passport");
-require("./router")(app);
+require("./routes/authRouter")(app);
 
 // Server Setup
 const PORT = process.env.PORT || 5000;

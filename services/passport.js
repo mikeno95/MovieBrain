@@ -4,11 +4,27 @@ const keys = require("../config/keys");
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const GoogleStrategy = require("passport-google-oauth20");
+const LocalStrategy = require("passport-local");
 const mongoose = require("mongoose");
 const User = mongoose.model("users");
 const Auth = require("../controllers/authentication");
 
+// Local Strategy
+const localOptions = { usernameField: "email" };
+passport.use(
+  new LocalStrategy(localOptions, async (email, password,done) => {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      const isMatch = await existingUser.comparePassword(password);
+      if (isMatch) {
+        return done(null, existingUser);
+      }
+    }
+    return done(null, false);
+  })
+);
 
+// Google Strategy
 passport.use(
   new GoogleStrategy(
     {
@@ -36,6 +52,7 @@ passport.use(
   )
 );
 
+// JWT Strategy
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromHeader("authorization"),
   secretOrKey: keys.jwtSecret

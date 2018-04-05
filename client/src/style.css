@@ -1,4 +1,9 @@
-
+.google-button {
+  background-image: url("./style/img/google-buttons/btn_google_signin_dark_normal_web@2x.png");
+  background-size: cover;
+  width: 100px;
+  height: 21px;
+}
 
 .modal-switch {
   cursor: pointer;

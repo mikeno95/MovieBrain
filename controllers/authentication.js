@@ -27,7 +27,13 @@ exports.localSignup = async (req, res, next) => {
     return res.status(422).send({ error: "Email is in use" });
   }
 
-  const user = new User({ email, password });
+  const user = new User({
+    // create new user
+    // Email
+    // password
+    // firstName
+    // lastName
+  });
   await user.save();
   res.send({ token: tokenForUser(user) });
 }

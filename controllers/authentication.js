@@ -9,7 +9,7 @@ exports.tokenForUser = function(user) {
   return jwt.encode({ sub: user.id, iat: timestamp }, keys.jwtSecret);
 }
 
-exports.localSignin = (req, res, next) => {
+exports.tokenSignin = (req, res, next) => {
   res.send({ token: tokenForUser(req.user)});
 }
 

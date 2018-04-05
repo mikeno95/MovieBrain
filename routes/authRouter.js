@@ -11,11 +11,11 @@ const requireSignin = passport.authenticate("local", { session: false });
 module.exports = app => {
   // Google OAuth
   app.get("/auth/google", googleOAuth);
-  app.get("/auth/google/callback", googleSignup);
+  app.get("/auth/google/callback", googleSignup, auth.tokenSignin);
 
   // Local
-  app.get("/signup", auth.localSignup);
-  app.get("/signin", requireSignin, auth.localSignin);
+  app.get("/auth/signup", auth.localSignup);
+  app.get("/auth/signin", requireSignin, auth.tokenSignin);
 
   // User Data
   app.get("/api/current_user", requireAuth, (req, res) => {

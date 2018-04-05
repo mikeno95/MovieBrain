@@ -7,7 +7,6 @@ const GoogleStrategy = require("passport-google-oauth20");
 const LocalStrategy = require("passport-local");
 const mongoose = require("mongoose");
 const User = mongoose.model("users");
-const Auth = require("../controllers/authentication");
 
 // Local Strategy
 const localOptions = { usernameField: "email" };
@@ -36,7 +35,6 @@ passport.use(
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({googleId: profile.id});
       if(existingUser) {
-        await Auth.tokenForUser(existingUser);
         return done(null, existingUser);
       }
       const user = await new User({
@@ -45,8 +43,6 @@ passport.use(
         lastName: profile.name.familyName,
         email: profile.emails[0].value
       }).save();
-
-      await Auth.tokenForUser(user);
       return done(null, user);
     }
   )

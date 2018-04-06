@@ -1,7 +1,7 @@
 // actions/index.js
 import axios from "axios";
-import { browserHistory } from "react-router";
-import { SEARCH_MOVIE, AUTH_USER, AUTH_ERROR, UNAUTH_USER } from "./types";
+// import { browserHistory } from "react-router";
+import { SEARCH_MOVIE, AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_USER } from "./types";
 
 const GENRE_PATH = "genre/movie/list?";
 const userAuth = { headers: { authorization: localStorage.getItem("token") } };
@@ -18,7 +18,7 @@ export const googleLogin = () => async dispatch => {
   const res = await axios.get("/auth/google");
   dispatch({ type: AUTH_USER });
   localStorage.setItem("token", res.data.token);
-  browserHistory.push("/dashboard");
+  // browserHistory.push("/dashboard");
 };
 
 export const localSignIn = form => async dispatch => {
@@ -27,7 +27,7 @@ export const localSignIn = form => async dispatch => {
     .then(res => {
       dispatch({ type: AUTH_USER });
       localStorage.setItem("token", res.data.token);
-      browserHistory.push("/dashboard");
+      // browserHistory.push("/dashboard");
     })
     .catch(res => dispatch(authError("Email or password is incorrect")));
 };
@@ -38,7 +38,7 @@ export const localSignUp = form => async dispatch => {
     .then(res => {
       dispatch({ type: AUTH_USER });
       localStorage.setItem("token", res.data.token);
-      browserHistory.push("/dashboard");
+      // browserHistory.push("/dashboard");
     })
     .catch(res => dispatch(authError(res.data.error)));
 };

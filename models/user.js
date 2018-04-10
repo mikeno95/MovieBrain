@@ -8,7 +8,9 @@ const userSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
   firstName: String,
-  lastName: String
+  lastName: String,
+  username: { type: String, unique: true }, //on validation make sure no other username exists even in variable cases
+  _userCollections: {type: Schema.Types.ObjectId, ref: "userCollections"},
 });
 
 userSchema.pre("save", async (next) => {

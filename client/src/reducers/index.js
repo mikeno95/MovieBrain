@@ -4,6 +4,6 @@ import movieReducer from "./movieReducer";
 import authReducer from "./authReducer";
 
 export default combineReducers({
-  searchedMovies: movieReducer,
+  searchResults: movieReducer,
   auth: authReducer
 });

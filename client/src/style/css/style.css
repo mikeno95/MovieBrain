@@ -26,6 +26,7 @@
   background: linear-gradient(129deg, #8a0785, #f709ee, #a109f7, #ffd800, #953fbd);
   background-size: 600% 600%;
   animation: linesGradient 30s ease infinite;
+  cursor: default;
 }
 
 @keyframes linesGradient {
@@ -49,42 +50,51 @@
     height: 100%;
 
 }
+#nav-table thead, #nav-table tbody {
+  border: 0;
+  display: contents;
+}
 
-
-
-#nav-table th, #nav-table td{
+#nav-table th, #nav-table td {
     border: 1px solid black;
-
-    padding-left: 26px;
     background-color: black;
-
 }
 
 #logo{
     padding-left: 0px;
 }
 
-#nav-table #nav-selectable:hover{
-    border: 1px solid purple;
-    border-left-width: 30px;
-    border-top-width: 2px;
-    border-collapse: collapse;
+#nav-table th {
+  padding-left: 20px;
 }
 
-#nav-table #nav-divider div{
+#nav-selectable {
+  padding-left: 20px;
+  color: white;
+  font-size: 15px;
+}
+
+#nav-table #nav-selectable:hover{
+    color: #CE6C80;
+}
+
+#nav-table #nav-selectable:active{
+    border-left: 30px solid purple;
+    border-collapse: collapse;
+}
+#nav-divider div {
     margin-left: 5%;
     width: 80%;
     height: 15px;
     margin-bottom: 15px;
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 1px solid #404040;
 }
 
-#nav-table #nav-divider{
-    padding-left: 16px;
+#nav-end {
+  height: 10px;
 }
 
 #nav-table a {
-
     text-decoration: none;
     font-size: 16px;
     color: #818181;
@@ -97,7 +107,86 @@
     color: #f1f1f1;
 }
 
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~Search-bar Container ~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#search-bar{
+    position: absolute;
+    z-index: 1;
+    right: 15px;
+    top: 15px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~ShowOne Container ~~~~~~~~~~~~~~~~~~~~~~~ */
+#ShowOne {
+  padding: 0;
+  min-height: 216px;
+  max-height: 350px;
+}
+#left-edge, #poster-div {
+  display: inline-block;
+  float: left;
+}
+
+#left-edge {
+  height: 100%;
+  width: 30px;
+  background-color: black;
+}
+#poster-div {
+  vertical-align: top;
+  width: 20%;
+  min-width: 141px;
+  max-width: 175px;
+}
+#poster-div div {
+  width: 100%;
+  height: 20px;
+  background-color: black;
+}
+#poster-div img {
+  width: 96%;
+  margin: 3px;
+  border: solid black 8px;
+}
+
+#SelectedResult {
+  background-color: black;
+  vertical-align: top;
+  height: 100%;
+  overflow: hidden;
+}
+
+#selected-results {
+  padding: 20px;
+  padding-left: 40px;
+  color: white;
+
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ShowList Container ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#toggleLabel{
+  vertical-align: 8px;
+  margin-right: 7px;
+  font-size: small;
+  color: #888888;
+}
+#toggleLabel.active{
+  color: #ce6c7fe6;
+}
+
+#MainComponent {
+  position: absolute;
+  left: 245px;
+  right: 20px;
+  min-width: 672px;
+  top: 0px;
+
+}
+
+#arrow i{
+  vertical-align: bottom;
+}
+
 @media screen and (min-height: 545px){
     #ShowList{
         height: 242px;
@@ -155,53 +244,67 @@
     }
 }
 
+#ShowComponent {
+  background-color: black;
+  margin-top: 5px;
+}
+
+#ShowHeader {
+  border-bottom: 1.5px solid #303030;
+  padding-top: 10px;
+}
+#ShowHeader h3, label {
+  display: inline-block;
+}
+#ShowHeader h3 {
+  color: #CE6C80;
+}
 
 #ShowList{
     margin-top: 0px;
     padding: 20px 20px 0px 20px;
-    background-color: black;
-    /* height: 500px; */
     overflow: scroll;
 }
 
 #showListTable {
- border-collapse: collapse;
- width: 100%;
+  border-collapse: collapse;
+  width: 100%;
+  color: #e2cfe2;
 }
 
-#showListTable thead,  {
-    display: block;
-}
-#showListTable tbody {
-    overflow: scroll;
-    height: 450px;
-}
 #showListTable th {
-    padding-bottom: 10px;
-    border-bottom: 1.5px solid #303030;
+
+  font-size: 1.2rem;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid #303030;
 }
 
 
-#showListTable td:nth-child(1), #showListTable th:nth-child(1) {  width: 4.0650407% ; }
-#showListTable td:nth-child(2), #showListTable th:nth-child(2) {  padding-left: 10px; width: 22.7642276% ; }
-#showListTable td:nth-child(3), #showListTable th:nth-child(3) {  padding-left: 10px; width: 16.2601626% ;}
-#showListTable td:nth-child(4), #showListTable th:nth-child(4) {  padding-left: 10px; width: 16.2601626% ;}
-#showListTable td:nth-child(5), #showListTable th:nth-child(5) {  padding-left: 10px; width: 16.2601626% ;}
-#showListTable td:nth-child(6), #showListTable th:nth-child(6) {  padding-left: 10px; width: 8.1300813% ;}
-#showListTable td:nth-child(7), #showListTable th:nth-child(7) {  padding-left: 10px; width: 8.1300813% ;}
-#showListTable td:nth-child(8), #showListTable th:nth-child(8) { padding-left: 10px; width: 8.1300813% ;}
-
-
-
-
-
-
+#showListTable td:nth-child(1), #showListTable th:nth-child(1) {  width: 2% ; text-align: center;}
+#showListTable td:nth-child(2), #showListTable th:nth-child(2) {  padding-left: 10px; width: 36% ; }
+#showListTable td:nth-child(3), #showListTable th:nth-child(3) {  padding-left: 10px; width: 22% ;}
+#showListTable td:nth-child(4), #showListTable th:nth-child(4) {  padding-left: 10px; width: 9% ; text-align: center;}
+#showListTable td:nth-child(5), #showListTable th:nth-child(5) {  padding-left: 10px; width: 9% ; text-align: center;}
+#showListTable td:nth-child(6), #showListTable th:nth-child(6) {  padding-left: 10px; width: 7% ; text-align: center;}
+#showListTable td:nth-child(7), #showListTable th:nth-child(7) {  padding-left: 10px; width: 11% ; text-align: center;}
+#showListTable td:nth-child(8), #showListTable th:nth-child(8) { padding-left: 10px; width: 4% ; text-align: center;}
 
 #resultItem {
-    width: 100%;
+  cursor: default;
+  width: 100%;
 }
+
+#resultItem td{
+  padding: 3px 0px;
+}
+
 #resultItem:hover {
-    color: #DF9254;
+  color: #DF9254;
+
+}
+#resultItem:active {
+  color: #e2cfe2;
+  background-color: #3e242a;
 
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Scroll Bar Stuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

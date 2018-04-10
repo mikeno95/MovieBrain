@@ -8,7 +8,7 @@ const mql = window.matchMedia(`(min-width: 800px)`);
 
 class Sidenav extends Component {
     renderCollections(){
-        const animals = ["aardvark", "bug"];
+        const animals = ["aardvark", "bug", "aardvark", "bug","aardvark", "bug","aardvark", "bug","aardvark", "bug"];
         return animals.map(animal => {
             return (
                 <tr>
@@ -35,50 +35,84 @@ class Sidenav extends Component {
       <div style={{position: "absolute", top: "0px", bottom: "0px", width: "230px", overflowY: "scroll"}}>
 
         <table id="nav-table">
-          <tr>
-              <th id="logo"><h1>MB</h1></th>
-          </tr>
-          <tr>
-              <th id="nav-selectable"><a>HOME</a></th>
-          </tr>
-          <tr>
-              <th id="nav-selectable"><a>BROWSE</a></th>
-          </tr>
-          <tr>
-              <th id="nav-selectable"><a>RECOMENDATIONS</a></th>
-          </tr>
-          <tr>
+          <thead>
+            <tr>
+                <th id="logo"><h1>MB</h1></th>
+            </tr>
+            <tr>
+                <th id="nav-selectable"><a>HOME</a></th>
+            </tr>
+            <tr>
+                <th id="nav-selectable"><a>BROWSE</a></th>
+            </tr>
+            <tr>
+                <th id="nav-selectable"><a>RECOMENDATIONS</a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
               <td id="nav-divider">
-                  <div id="nav-divider"></div>
+                  <div></div>
               </td>
-          </tr>
-          <tr>
-              <th>COLLECTIONS</th>
-          </tr>
-          {this.renderCollections()}
-          <tr>
-              <td id="nav-selectable">+ Custom Collection</td>
-          </tr>
-          <tr>
-              <td id="nav-selectable">+ Import Collection</td>
-          </tr>
-          <tr>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+                <th>COLLECTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td id="nav-selectable">Watchlist</td>
+            </tr>
+            {this.renderCollections()}
+            <tr>
+                <td id="nav-selectable">+ Custom Collection</td>
+                {/* Would you like a linked folder in Seen? */}
+            </tr>
+            <tr>
+                <td id="nav-selectable">+ Import Collection</td>
+            </tr>
+            <tr>
               <td id="nav-divider">
-                  <div id="nav-divider"></div>
+                  <div></div>
               </td>
-          </tr>
-          <tr>
-              <th>SEEN</th>
-          </tr>
-          {this.renderSeen()}
-          <tr>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+                <th>SEEN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td id="nav-selectable">All</td>
+            </tr>
+            <tr>
+                <td id="nav-selectable">Favorites</td>
+            </tr>
+            <tr>
+                <td id="nav-selectable">+ Custom Collection</td>
+            </tr>
+            <tr>
               <td id="nav-divider">
-                  <div id="nav-divider"></div>
+                  <div></div>
               </td>
-          </tr>
-          <tr>
-              <th id="nav-selectable">BLACKLIST</th>
-          </tr>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+                <th id="nav-selectable">BLACKLIST</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>
+                    <div id="nav-end"></div>
+                </td>
+            </tr>
+          </tbody>
+
 
 
 

@@ -2,19 +2,41 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ShowOne from "./ShowOne";
 import ShowList from "./ShowList";
+import Search from "./Search";
 
 class Main extends Component {
-    render() {
-        return (
-            <div style={{position: 'absolute', left: '245px', right: '20px', minWidth: '672px',  top: "0px"}}>
-                <ShowOne />
-                <ShowList />
-                <div className="row" style={{position: 'absolute', height: "10px"}}>
-
-    			</div>
-            </div>
-        );
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedResult: {},
+      term: ""
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  onSelected(result) {
+    this.setState({selectedResult:result})
+  }
+  handleSubmit(event, searched) {
+    this.setState({term: searched});
+    // this.setState({term: ""});
+    // event.preventDefault();
+  }
+  render() {
+      return (
+          <div id="MainComponent">
+              <Search
+                handleSubmit={this.handleSubmit}
+              />
+              <ShowOne
+                selectedResult={this.state.selectedResult}
+              />
+              <ShowList
+                onSelected={(result) => {this.onSelected(result)}}
+                searchTerm={this.state.term}
+              />
+          </div>
+      );
+  }
 }
 
 export default Main;
